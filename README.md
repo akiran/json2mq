@@ -18,6 +18,7 @@ json2mq({screen: true});  // -> 'screen'
 * Media type with negation 
 ```javascript
 json2mq({handheld: false});  // -> 'not handheld'
+```
 
 * Media features can be specified in camel case
 ```javascript
@@ -36,8 +37,8 @@ json2mq([{screen: true, minWidth: 100}, {handheld: true, orientation: 'landscape
 ```
 
 
-###
-Contributors
+
+## Contributors
 
 * Eric Schoffstall
 

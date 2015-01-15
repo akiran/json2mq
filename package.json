@@ -1,6 +1,6 @@
 {
   "name": "json2mq",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Generate media query string from JSON or javascript object",
   "main": "index.js",
   "scripts": {
