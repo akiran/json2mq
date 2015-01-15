@@ -4,7 +4,7 @@
   "description": "Generate media query string from JSON or javascript object",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha test -w"
+    "test": "./node_modules/.bin/mocha test"
   },
   "repository": {
     "type": "git",

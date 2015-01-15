@@ -3,7 +3,11 @@ var json2mq = require('../');
 
 describe('json2mq', function () {
   it('should return query string for media type', function () {
-    json2mq({type: 'screen'}).should.equal('screen');
+    json2mq({screen: true}).should.equal('screen');
+  });
+
+  it('should return query string for media type with not', function () {
+    json2mq({handheld: false}).should.equal('not handheld');
   });
 
   it('should return query string for media features', function () {
@@ -11,7 +15,7 @@ describe('json2mq', function () {
   });
 
   it('should return query string for media type and media features', function () {
-    json2mq({type: 'screen', minWidth: 100, maxWidth: 200}).should.equal('screen and (min-width: 100px) and (max-width: 200px)');
+    json2mq({screen: true, minWidth: 100, maxWidth: 200}).should.equal('screen and (min-width: 100px) and (max-width: 200px)');
   });
 
   it('should add px unit to dimension features', function () {
@@ -25,11 +29,11 @@ describe('json2mq', function () {
   it('should return comma seperated query string for multiple media queries', function () {
     json2mq([
       {minWidth: 100},
-      {type: 'handheld', orientation: 'landscape'}
+      {handheld: true, orientation: 'landscape'}
     ]).should.equal('(min-width: 100px), handheld and (orientation: landscape)');
   });
 
   it('should only return feature if its value is true', function () {
-    json2mq({type: 'all', monochrome: true}).should.equal('all and (monochrome)');
+    json2mq({all: true, monochrome: true}).should.equal('all and monochrome');
   });
 });

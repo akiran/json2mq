@@ -7,10 +7,6 @@ var isDimension = function (feature) {
 
 var obj2mq = function (obj) {
   var mq = '';
-  if (obj.type) {
-    mq += obj.type + ' and ';
-    delete obj.type;
-  }
   var features = Object.keys(obj);
   features.forEach(function (feature, index) {
     var value = obj[feature];
@@ -20,13 +16,16 @@ var obj2mq = function (obj) {
       value = value + 'px';
     }
     if (value === true) {
-      mq += '(' + feature + ') and ';
+      mq += feature;
+    } else if (value === false) {
+      mq += 'not ' + feature;
     } else {
-      mq += '(' + feature + ': ' + value + ') and ';
+      mq += '(' + feature + ': ' + value + ')';
+    }
+    if (index < features.length-1) {
+      mq += ' and '
     }
   });
-  // Remove extra 'and' at the end
-  mq = mq.replace(/ and $/, '');
   return mq;
 };
 
@@ -35,14 +34,17 @@ var json2mq = function (query) {
   if (typeof query === 'string') {
     return query;
   }
+  // Handling array of media queries
   if (query instanceof Array) {
-    query.forEach(function (q) {
-      mq += obj2mq(q) + ', ';
+    query.forEach(function (q, index) {
+      mq += obj2mq(q);
+      if (index < query.length-1) {
+        mq += ', '
+      }
     });
-    // Remove extra comma at the end
-    mq = mq.replace(/, $/, '');
     return mq;
   }
+  // Handling single media query
   return obj2mq(query);
 };
 
