@@ -11,10 +11,14 @@ var json2mq = require('json2mq');
 json2mq({minWidth: 100, maxWidth: 200});
 // -> '(min-width: 100px) and (max-width: 200px)'
 ```
-* Media type should be specified using type property
+* Media type 
 ```javascript
-json2mq({type: 'screen'});  // -> 'screen'
+json2mq({screen: true});  // -> 'screen'
 ```
+* Media type with negation 
+```javascript
+json2mq({handheld: false});  // -> 'not handheld'
+
 * Media features can be specified in camel case
 ```javascript
 json2mq({minWidth: 100, maxWidth: 200});
@@ -27,9 +31,13 @@ json2mq({minWidth: 100, maxWidth: '20em'});
 ```
 * Multiple media queries can be passed as an array
 ```javascript
-json2mq([{type: screen, minWidth: 100}, {type: handheld, orientation: 'landscape'}]); 
+json2mq([{screen: true, minWidth: 100}, {handheld: true, orientation: 'landscape'}]); 
 // -> 'screen and (min-width: 100px), handheld and (orientation: landscape)'
 ```
 
 
+###
+Contributors
+
+* Eric Schoffstall
 
