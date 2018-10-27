@@ -39,11 +39,6 @@ json2mq([{screen: true, minWidth: 100}, {handheld: true, orientation: 'landscape
 
 
 ## Contributors
-
+* [Kiran Abburi](https://twitter.com/kiran_abburi)
 * Eric Schoffstall
 
-## Sponsor
-
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/8Wa5rFgnuaoyA8ryN2LAAqgu/akiran/json2mq'>
-  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/8Wa5rFgnuaoyA8ryN2LAAqgu/akiran/json2mq.svg' />
-</a>
